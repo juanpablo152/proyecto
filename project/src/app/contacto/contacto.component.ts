@@ -2,7 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { ContactoService } from '../services/contacto.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Contacto } from '../models/Contacto';
-import { Validators } from '@angular/forms';
+import { Validators, NgForm } from '@angular/forms';
 
 
 @Component({
@@ -30,6 +30,7 @@ export class ContactoComponent implements OnInit {
   pageActual: number = 1;
   contacto: any = [];
   edit: boolean = false;
+  public isError = false;
   constructor(private contactoService: ContactoService,private router: Router,private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -57,17 +58,29 @@ export class ContactoComponent implements OnInit {
     );
    }
 
-  saveNuevoContacto() {
-    console.log('entro');
+  saveNuevoContacto(form: NgForm) {
+    if (form.valid) {
+      console.log('entro');
 //   delete this.game.id;
     this.contactoService.saveContacto(this.contactos).subscribe(
       res => {
         console.log('entro 2');
         console.log(res);
         this.router.navigate(['/']);
+        this.isError = false;
       },
-      err => console.log(err)
-    );
+      err => { this.onIsError()
+      }
+    )} else {
+      this.onIsError();
+    }
+  }
+
+  onIsError(): void {
+    this.isError = true;
+    setTimeout (() => {
+      this.isError = false;
+    }, 5000)
   }
 
   deleteUnContacto(id: string) {
@@ -75,7 +88,7 @@ export class ContactoComponent implements OnInit {
       res => {
         console.log(res);
         this.getContactos();
-        this.router.navigate(['/']);
+        this.router.navigate(['/contacto']);
       },
       err => console.error(err)
     );
@@ -85,7 +98,6 @@ export class ContactoComponent implements OnInit {
     this.contactoService.updateContacto(this.contactos.id_clie, this.contactos).subscribe(
       res => {
         console.log(res);
-        
         this.router.navigate(['/']);
       },
       err => console.error(err)

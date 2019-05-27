@@ -13,11 +13,12 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ContactoComponent } from '../../contacto/contacto.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { RegistroUsuarioComponent } from '../../registro-usuario/registro-usuario.component';
 import { EstablecimientoComponent } from '../../establecimiento/establecimiento.component';
+import { RegisusuarioComponent  } from '../../regisusuario/regisusuario.component';
 import { ContactoService } from '../../services/contacto.service';
 import { EstablecimientoService } from '../../services/establecimiento.service';
-import { RegisUsuarioService } from '../../services/regis-usuario.service';
+import { RegisusuarioService  } from '../../services/regisusuario.service';
+
 
 import {
   MatButtonModule,
@@ -50,13 +51,13 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     ContactoComponent,
-    RegistroUsuarioComponent,
     EstablecimientoComponent,
+    RegisusuarioComponent
   ],
   providers: [
     ContactoService,
     EstablecimientoService,
-    RegisUsuarioService
+    RegisusuarioService
   ]
 })
 

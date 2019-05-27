@@ -1,4 +1,4 @@
-export interface Regis_usuario{
+export interface Regisusuario {
     iduser?: number;
     nombres?: string;
     apellidos?: string;

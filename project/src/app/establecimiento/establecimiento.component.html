@@ -9,7 +9,14 @@
                   </div>
                  
                   <div class="card-body">
-                      <form>
+                      <form #formEstablecimiento="ngForm" (ngSubmit)="saveNuevoEstablecimiento(formEstablecimiento)">
+                          <div class="row">
+                              <div class="col-md-12">
+                                <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                   Revise los campos, Alguno de los campos presenta un error
+                                  </div>
+                                </div>
+                            </div>
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
@@ -192,6 +199,9 @@
                             Calificación
                         </th>
                         <th>
+                            Eliminar
+                        </th>
+                        <th>
                             Modificar Datos
                         </th>
                         
@@ -210,6 +220,11 @@
                             </td>
                             <td>
                                 {{ est.cal_est }}
+                            </td>
+                            <td>
+                                <button mat-raised-button class="btn btn-success btn-block" (click)="deleteUnEstablecimiento(est.id_est) " style="background-color: #2e76d0">
+                                  Eliminar
+                                </button>
                             </td>
                             <td>
                                 <button mat-raised-button class="btn btn-success btn-block" (click)="updateUnEstablecimiento() " style="background-color: #2e76d0">

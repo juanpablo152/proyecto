@@ -16,7 +16,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' }, */
     { path: '/contacto', title: 'Contactos',  icon:'person', class: ' ' },
-    { path: '/registro-usuario', title: 'Registrar usuario',  icon:'person', class: ' ' },
+    { path: '/regisusuario', title: 'Registrar usuario',  icon:'person', class: ' ' },
     { path: '/establecimiento', title: 'Establecimiento',  icon:'person', class: ' ' },
 
 

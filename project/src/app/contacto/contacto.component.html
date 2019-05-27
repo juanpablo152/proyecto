@@ -9,11 +9,18 @@
                     </div>
                    
                     <div class="card-body">
-                        <form>
+                        <form #formContacto="ngForm" (ngSubmit)="saveNuevoContacto(formContacto)" (ngSubmit)="updateUnContacto(formContacto)">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                 Revise los campos, Alguno de los campos presenta un error
+                                </div>
+                              </div>
+                          </div>
                             <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Identificación" required pattern="^[0-9.!#$%&'*+/=?^_`{|}~-]+@[0-9-]+(?:\.[0-9-]+)*$" type="number" [(ngModel)]="contactos.id_clie" name="id_clie" required>
+                                      <input matInput placeholder="Identificación" required type="number" [(ngModel)]="contactos.id_clie" name="id_clie">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
@@ -29,7 +36,7 @@
                                 <div class="row">
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Nombre(s)" required name="nom_clie" pattern="^[a-zA-Z^_`{|}~-]+@[a-zA-Z-]+(?:\.[a-zA-Z-]+)*$"  [(ngModel)]="contactos.nom_clie" type="text">
+                                      <input matInput placeholder="Nombre(s)" name="nom_clie"  [(ngModel)]="contactos.nom_clie" type="text">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
@@ -52,7 +59,7 @@
                                 </div>
                                 <div class="col-md-4">
                                         <mat-form-field class="example-full-width">
-                                          <input matInput placeholder="Localidad" name="loc_clie" [(ngModel)]="contactos.loc_clie" type="number" required>
+                                          <input matInput placeholder="Localidad" name="loc_clie" [(ngModel)]="contactos.loc_clie" type="number" maxlength="10" required>
                                         </mat-form-field>
                                       </div>
                             </div>
@@ -72,7 +79,7 @@
                                   </div>
                                   <div class="col-md-4">
                                         <mat-form-field class="example-full-width">
-                                          <input matInput placeholder="Teléfono" name="tel_clie" [(ngModel)]="contactos.tel_clie" type="number" required>
+                                          <input matInput placeholder="Teléfono" name="tel_clie" [(ngModel)]="contactos.tel_clie" type="number" maxlength="10" required>
                                         </mat-form-field>
                                       </div>
                             </div>
@@ -132,7 +139,7 @@
   </div>
 
     
- 
+        
         
         <div class="col-md-12">
             <div class="card card-plain">
@@ -163,6 +170,9 @@
                                     Email
                                 </th>
                                 <th>
+                                    Eliminar contacto
+                                </th>
+                                <th>
                                     Modificar Datos
                                 </th>
                                 
@@ -186,6 +196,11 @@
                                     </td>
                                     <td>
                                         {{ persona.email_clie }}
+                                    </td>
+                                    <td>
+                                        <button mat-raised-button class="btn btn-success btn-block" (click)="deleteUnContacto(persona.id_clie) " style="background-color: #2e76d0">
+                                          Eliminar
+                                        </button>
                                     </td>
                                     <td>
                                         <button mat-raised-button class="btn btn-success btn-block" (click)="updateUnContacto() " style="background-color: #2e76d0">

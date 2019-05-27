@@ -12,11 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class Regis_usuarioController {
+class RegisusuarioController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const usuario = yield database_1.default.query('SELECT * FROM usuarios');
-            res.json(usuario);
+            const regisusuario = yield database_1.default.query('SELECT * FROM usuarios');
+            res.json(regisusuario);
         });
     }
     create(req, res) {
@@ -29,9 +29,9 @@ class Regis_usuarioController {
     getone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const usuario = yield database_1.default.query('SELECT * FROM usuarios WHERE iduser = ?', [id]);
-            if (usuario.length > 0) {
-                return res.json(usuario[0]);
+            const regisusuario = yield database_1.default.query('SELECT * FROM usuarios WHERE iduser = ?', [id]);
+            if (regisusuario.length > 0) {
+                return res.json(regisusuario[0]);
             }
             else {
                 res.status(404).json({ text: 'el usuario no existe' });
@@ -53,4 +53,4 @@ class Regis_usuarioController {
         });
     }
 }
-exports.regis_usuarioController = new Regis_usuarioController();
+exports.regisusuarioController = new RegisusuarioController();

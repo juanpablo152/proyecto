@@ -20,16 +20,16 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { ContactoComponent } from './contacto/contacto.component';
-import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { EstablecimientoComponent } from './establecimiento/establecimiento.component';
- 
 import { ContactoService } from './services/contacto.service';
 import { EstablecimientoService } from './services/establecimiento.service';
-import { RegisUsuarioService } from './services/regis-usuario.service';
+import { RegisusuarioService } from './services/regisusuario.service';
+
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
 
 
 
@@ -50,12 +50,11 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
   ],
   providers: [
     ContactoService,
     EstablecimientoService,
-    RegisUsuarioService
+    RegisusuarioService,
   ],
   bootstrap: [AppComponent],
 

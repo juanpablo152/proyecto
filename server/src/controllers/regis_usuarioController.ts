@@ -1,11 +1,11 @@
 import {Request, Response} from 'express';
 import pool from '../database';
 
-class Regis_usuarioController {
+class RegisusuarioController {
 
   public async list (req :Request, res :Response) {
-       const usuario = await pool.query('SELECT * FROM usuarios');
-        res.json(usuario);
+       const regisusuario = await pool.query('SELECT * FROM usuarios');
+        res.json(regisusuario);
     }
 
     public async create (req :Request, res :Response) {
@@ -16,10 +16,10 @@ class Regis_usuarioController {
 
     public async getone (req :Request, res :Response) {
         const {id} = req.params;
-       const usuario = await pool.query('SELECT * FROM usuarios WHERE iduser = ?', [id]);
+       const regisusuario = await pool.query('SELECT * FROM usuarios WHERE iduser = ?', [id]);
        
-        if(usuario.length > 0){
-            return res.json(usuario[0]);
+        if(regisusuario.length > 0){
+            return res.json(regisusuario[0]);
         }
         else{
         res.status(404).json({text: 'el usuario no existe'});
@@ -43,4 +43,4 @@ class Regis_usuarioController {
 }
 
 
-export const regis_usuarioController = new Regis_usuarioController();
+export const regisusuarioController = new RegisusuarioController();

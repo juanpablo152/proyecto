@@ -8,7 +8,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const contactoRoutes_1 = __importDefault(require("./routes/contactoRoutes"));
-const regis_usuarioRoutes_1 = __importDefault(require("./routes/regis_usuarioRoutes"));
+const regisusuarioRoutes_1 = __importDefault(require("./routes/regisusuarioRoutes"));
 const establecimientoRoutes_1 = __importDefault(require("./routes/establecimientoRoutes"));
 class Server {
     constructor() {
@@ -26,7 +26,7 @@ class Server {
     routes() {
         this.app.use(indexRoutes_1.default);
         this.app.use('/api/contacto', contactoRoutes_1.default);
-        this.app.use('/api/regis_usuario', regis_usuarioRoutes_1.default);
+        this.app.use('/api/regisusuario', regisusuarioRoutes_1.default);
         this.app.use('/api/establecimiento', establecimientoRoutes_1.default);
     }
     start() {

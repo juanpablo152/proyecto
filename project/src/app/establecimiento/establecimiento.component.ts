@@ -2,7 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { EstablecimientoService } from '../services/establecimiento.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Establecimiento } from '../models/Establecimiento';
-
+import { Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-establecimiento',
@@ -28,6 +28,7 @@ export class EstablecimientoComponent implements OnInit {
   pageActual: number = 1;
   establecimiento: any = [];
   edit: boolean = false;
+  public isError = false;
 
   constructor(private establecimientoService: EstablecimientoService,private router: Router,private activeRoute: ActivatedRoute) { }
 
@@ -56,18 +57,30 @@ export class EstablecimientoComponent implements OnInit {
     );
    }
 
-  saveNuevoEstablecimiento() {
-    console.log('entro');
-//   delete this.game.id;
-    this.establecimientoService.saveEstablecimiento(this.establecimientos).subscribe(
-      res => {
-        console.log('entro 2');
-        console.log(res);
-        this.router.navigate(['/']);
-      },
-      err => console.log(err)
-    );
-    console.log('salio');
+  saveNuevoEstablecimiento(form: NgForm) {
+    if (form.valid) {
+      console.log('entro');
+      //   delete this.game.id;
+          this.establecimientoService.saveEstablecimiento(this.establecimientos).subscribe(
+            res => {
+              console.log('entro 2');
+              console.log(res);
+              this.router.navigate(['/']);
+              this.isError = false;
+            },
+            err => {
+              this.onIsError();
+            }
+          )} else {
+            this.onIsError();
+          }
+  }
+
+  onIsError(): void {
+    this.isError = true;
+    setTimeout (() => {
+      this.isError = false;
+    }, 3000)
   }
 
   updateUnEstablecimiento() {
@@ -85,7 +98,7 @@ export class EstablecimientoComponent implements OnInit {
       res => {
         console.log(res);
         this.getEstablecimientos();
-        this.router.navigate(['/']);
+        this.router.navigate(['/establecimiento']);
       },
       err => console.error(err)
     );
