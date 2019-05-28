@@ -7,6 +7,9 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
+
+//Barra lateral donde se muestra el menu de opciones que se tienen para que el usuario interactue con ellas y haga el cambio a otros componentes.
+
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
    /* { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
@@ -18,6 +21,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/contacto', title: 'Contactos',  icon:'person', class: ' ' },
     { path: '/regisusuario', title: 'Registrar usuario',  icon:'person', class: ' ' },
     { path: '/establecimiento', title: 'Establecimiento',  icon:'person', class: ' ' },
+    
 
 
 ];

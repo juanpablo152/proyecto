@@ -1,4 +1,8 @@
 
+<!-- vista para el usuario cuando accede al componente de regisusuario,
+  para todos los componentes se utilizó el mismo diseño, columnas filas y un formulario para llevar un orden.
+-->
+
 <div class="main-content">
   <div class="container-fluid">
       <div class="row">
@@ -164,11 +168,14 @@
                             Email
                         </th>
                         <th>
+                            Eliminar
+                        </th>
+                        <th>
                             Modificar Datos
                         </th>
                         
                     </thead>
-                    <tbody *ngFor="let user of usuario | paginate: { itemsPerPage: 7, currentPage: pageActual }">
+                    <tbody *ngFor="let user of usuario | paginate: { itemsPerPage: 5, currentPage: pageActual }">
                         <tr>
                             <td>
                                 {{ user.iduser }}

@@ -20,6 +20,7 @@ import { EstablecimientoService } from '../../services/establecimiento.service';
 import { RegisusuarioService  } from '../../services/regisusuario.service';
 
 
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -52,7 +53,8 @@ import {
     UpgradeComponent,
     ContactoComponent,
     EstablecimientoComponent,
-    RegisusuarioComponent
+    RegisusuarioComponent,
+
   ],
   providers: [
     ContactoService,

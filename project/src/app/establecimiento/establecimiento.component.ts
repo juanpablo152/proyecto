@@ -4,6 +4,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { Establecimiento } from '../models/Establecimiento';
 import { Validators, NgForm } from '@angular/forms';
 
+/* Componente establecimiento, en este ts se realizan los métodos correspondientes para
+el crud de registro de usuarios así mismo como el llamado al modelo como serán guardado
+los datos.
+*/
+
 @Component({
   selector: 'app-establecimiento',
   templateUrl: './establecimiento.component.html',

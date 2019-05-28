@@ -1,3 +1,8 @@
+<!-- vista para el usuario cuando accede al componente de contacto,
+  para todos los componentes se utilizó el mismo diseño, columnas filas y un formulario para llevar un orden.
+-->
+
+
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -9,7 +14,7 @@
                     </div>
                    
                     <div class="card-body">
-                        <form #formContacto="ngForm" (ngSubmit)="saveNuevoContacto(formContacto)" (ngSubmit)="updateUnContacto(formContacto)">
+                        <form #formContacto="ngForm" (ngSubmit)="saveNuevoContacto(formContacto)">
                           <div class="row">
                             <div class="col-md-12">
                               <div class="alert alert-danger" role="alert" *ngIf="isError">
@@ -177,7 +182,7 @@
                                 </th>
                                 
                             </thead>
-                            <tbody *ngFor="let persona of contacto | paginate: { itemsPerPage: 7, currentPage: pageActual }">
+                            <tbody *ngFor="let persona of contacto | paginate: { itemsPerPage: 5, currentPage: pageActual }">
                                 <tr>
                                     <td>
                                         {{ persona.id_clie }}

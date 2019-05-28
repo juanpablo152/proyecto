@@ -13,3 +13,5 @@ export interface Contacto{
     loc_clie?: string;
     id_camp?: number;
 }
+
+// Esta interface es llamada en el componente contacto para tener acceso a estos datos, que son los que estan presentes en la base datos.

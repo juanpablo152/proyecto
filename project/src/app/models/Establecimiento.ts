@@ -10,3 +10,5 @@ export interface Establecimiento{
     act_est?: number;
     est_clie?: number;
 }
+
+// Esta interface es llamada en el componente establecimiento para tener acceso a estos datos, que son los que estan presentes en la base datos.

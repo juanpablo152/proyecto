@@ -3,6 +3,9 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 
+//Barra superior para todas las páginas, se utilizó este estilo para no tener que copiar el mismo código en las demás páginas.
+// Ajuste de el sidebar para cuando se abre o cierra no genere problemas con los elementos que se estan mostrando en pantalla
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

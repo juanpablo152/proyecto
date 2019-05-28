@@ -4,6 +4,10 @@ import { RegisusuarioService } from '../services/regisusuario.service';
 import { Regisusuario } from '../models/Regisusuario';
 import { Validators, NgForm } from '@angular/forms';
 
+/* Componente regisusuario, en este ts se realizan los métodos correspondientes para
+el crud de registro de usuarios así mismo como el llamado al modelo como serán guardado
+los datos.
+*/
 @Component({
   selector: 'app-regisusuario',
   templateUrl: './regisusuario.component.html',
@@ -24,13 +28,23 @@ export class RegisusuarioComponent implements OnInit {
     estado: 0,
     zona: 0
   }
+    //Declaración de algunas variables necesarias para la ejecución de los metodos
+  //usado para paginar la tabla
   pageActual: number = 1;
+    //Necesario para poder agregar un nuevo objeto
+
   usuario: any = [];
+    //no es tan indispensable pero se uso para no tener inconveniencias con el boton guardar
+
   edit: boolean = false;
+    //notifica el error si el usuario no relleno el formulario de manera correcta
+
   public isError = false;
+    //Se incicializan las variables para usarlas en los métodos.
 
   constructor(private regisusuarioService: RegisusuarioService, private router: Router,private activeRoute: ActivatedRoute) { }
-  
+    //Se llama el método para listar los objetos y se realiza una validación para el boton guardar
+
   ngOnInit() {
     this.getUsuarios();
     const params = this.activeRoute.snapshot.params;
@@ -46,6 +60,8 @@ export class RegisusuarioComponent implements OnInit {
       );
     }
   }
+    //Obtiene todos los objetos desde la bd
+
   getUsuarios() {
     this.regisusuarioService.getUsuarios().subscribe(
       res => {
@@ -55,12 +71,15 @@ export class RegisusuarioComponent implements OnInit {
       err => console.log(err)
     );
    }
+     //notifica un error si el formulario no se lleno de manera correcta
+
    onIsError(): void {
     this.isError = true;
     setTimeout (() => {
       this.isError = false;
     }, 3000)
   }
+   //agrega un nuevo objeto
 
    saveNuevoUsuario(form: NgForm) {
     console.log('entro');
@@ -75,6 +94,7 @@ export class RegisusuarioComponent implements OnInit {
       }
     )}
 
+    //Se actualiza un objeto
 
 
   updateUnUsuario() {
@@ -86,6 +106,7 @@ export class RegisusuarioComponent implements OnInit {
       err => console.error(err)
     );
   }
+  //Se elimina un objeto
 
   deleteUnUsuario(id: string) {
     this.regisusuarioService.deleteUsuario(id).subscribe(

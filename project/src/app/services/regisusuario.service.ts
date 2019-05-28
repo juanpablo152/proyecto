@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+// Se hace el llamado a las Api del server para realizar el crud y usarlas en la aplicación
+
 export class RegisusuarioService {
 
   API_URI = 'http://localhost:3000/api';

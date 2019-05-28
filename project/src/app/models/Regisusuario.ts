@@ -11,3 +11,5 @@ export interface Regisusuario {
     estado?: number;
     zona?: number;
 }
+
+// Esta interface es llamada en el componente contacto para tener acceso a estos datos, que son los que estan presentes en la base datos.

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import {Contacto} from '../models/contacto';
 import { Observable } from 'rxjs';
 
+// Se hace el llamado a las Api del server para realizar el crud y usarlas en la aplicación
+
 @Injectable({
   providedIn: 'root'
 })
