@@ -44,7 +44,7 @@
     "jquery": "3.2.1",
     "moment": "2.22.1",
     "ngx-pagination": "^3.2.1",
-    "nodemailer": "^6.2.1",
+    "nodemailer": "^6.4.16",
     "perfect-scrollbar": "1.1.0",
     "popper.js": "1.14.3",
     "rxjs": "6.3.3",
